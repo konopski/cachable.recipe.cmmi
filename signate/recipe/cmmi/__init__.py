@@ -191,7 +191,6 @@ class Recipe(object):
                     self.call_script(self.options['post-make-hook'])
 
                 if not os.path.exists(cache):
-                    os.mkdir(cache)
                     shutil.copytree(compile_dir, cache)
 
             except:
