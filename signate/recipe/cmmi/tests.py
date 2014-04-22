@@ -24,7 +24,7 @@ optionflags = (doctest.ELLIPSIS |
 def setUp(test):
     zc.buildout.testing.buildoutSetUp(test)
     zc.buildout.testing.install('hexagonit.recipe.download', test)
-    zc.buildout.testing.install_develop('hexagonit.recipe.cmmi', test)
+    zc.buildout.testing.install_develop('signate.recipe.cmmi', test)
 
 
 class NonInformativeTests(unittest.TestCase):
@@ -47,7 +47,7 @@ class NonInformativeTests(unittest.TestCase):
         return path
 
     def make_recipe(self, buildout, name, options):
-        from hexagonit.recipe.cmmi import Recipe
+        from signate.recipe.cmmi import Recipe
         parts_directory_path = os.path.join(self.dir, 'test_parts')
         try:
             os.mkdir(parts_directory_path)

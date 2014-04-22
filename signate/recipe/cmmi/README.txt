@@ -148,7 +148,7 @@ Supported options
     used, for example, to append to the ``PATH`` variable, e.g.::
 
         [component]
-        recipe = hexagonit.recipe.cmmi
+        recipe = signate.recipe.cmmi
         environment-section =
             environment
 
@@ -201,7 +201,7 @@ Let's create a buildout to build and install the package.
     ... parts = package
     ...
     ... [package]
-    ... recipe = hexagonit.recipe.cmmi
+    ... recipe = signate.recipe.cmmi
     ... url = file://%s/package-0.0.0.tar.gz
     ... """ % src)
 
@@ -237,7 +237,7 @@ a custom location within the buildout::
     ... perl_lib = ${buildout:directory}/perl_lib
     ...
     ... [foobar]
-    ... recipe = hexagonit.recipe.cmmi
+    ... recipe = signate.recipe.cmmi
     ... configure-command = perl -I${buildout:perl_lib}/lib/perl5 Makefile.PL INSTALL_BASE=${buildout:perl_lib}
     ... url = file://%s/Foo-Bar-0.0.0.tar.gz
     ... """ % src)
@@ -272,7 +272,7 @@ Makefile and using explicit ``make`` options to control the build process.
     ... parts = haproxy
     ...
     ... [haproxy]
-    ... recipe = hexagonit.recipe.cmmi
+    ... recipe = signate.recipe.cmmi
     ... configure-command = true
     ... make-options =
     ...     TARGET=linux26
@@ -318,7 +318,7 @@ and building that.
     ... parts = package
     ...
     ... [package]
-    ... recipe = hexagonit.recipe.cmmi
+    ... recipe = signate.recipe.cmmi
     ... path = %s/package-0.0.0
     ... """ % checkout_dir)
 
@@ -357,7 +357,7 @@ with a new buildout and provide more options.
     ... LDFLAGS = -I/sw/lib
     ...
     ... [package]
-    ... recipe = hexagonit.recipe.cmmi
+    ... recipe = signate.recipe.cmmi
     ... url = file://%(src)s/package-0.0.0.tar.gz
     ... md5sum = 6b94295c042a91ea3203857326bc9209
     ... prefix = /somewhere/else
@@ -457,7 +457,7 @@ and a new buildout to try it out
     ... parts = package
     ...
     ... [package]
-    ... recipe = hexagonit.recipe.cmmi
+    ... recipe = signate.recipe.cmmi
     ... url = file://%(src)s/package-0.0.0.tar.gz
     ... pre-configure-hook = %(module)s:preconfigure
     ... pre-make-hook = %(module)s:premake
@@ -479,7 +479,7 @@ and a new buildout to try it out
     hook: This is post-make-hook!
 
 For even more specific needs you can write your own recipe that uses
-``hexagonit.recipe.cmmi`` and set the ``keep-compile-dir`` option to ``true``.
+``signate.recipe.cmmi`` and set the ``keep-compile-dir`` option to ``true``.
 You can then continue from where this recipe finished by reading the location
 of the compile directory from ``options['compile-directory']`` from your own
 recipe.

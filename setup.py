@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 import os
 
 version = '2.0'
-name = 'hexagonit.recipe.cmmi'
+name = 'signate.recipe.cmmi'
 
 
 def read(*rnames):
@@ -21,7 +21,7 @@ setup(
         'Detailed Documentation\n'
         '**********************\n'
         + '\n' +
-        read('hexagonit', 'recipe', 'cmmi', 'README.txt')
+        read('signate', 'recipe', 'cmmi', 'README.txt')
         + '\n' +
         'Download\n'
         '***********************\n'
@@ -40,11 +40,11 @@ setup(
     ],
     keywords='development buildout recipe',
     author='Kai Lautaportti',
-    author_email='kai.lautaportti@hexagonit.fi',
-    url='http://github.com/hexagonit/hexagonit.recipe.cmmi',
+    author_email='konopski@gmail.com',
+    url='http://github.com/konopski/hexagonit.recipe.cmmi',
     license='BSD',
     packages=find_packages(exclude=['ez_setup']),
-    namespace_packages=['hexagonit', 'hexagonit.recipe'],
+    namespace_packages=['signate', 'signate.recipe'],
     include_package_data=True,
     zip_safe=False,
     install_requires=[
@@ -56,6 +56,6 @@ setup(
         'test': ['zope.testing'],
     },
     tests_require=['zope.testing'],
-    test_suite='hexagonit.recipe.cmmi.tests.test_suite',
-    entry_points={'zc.buildout': ['default = hexagonit.recipe.cmmi:Recipe']},
+    test_suite='signate.recipe.cmmi.tests.test_suite',
+    entry_points={'zc.buildout': ['default = signate.recipe.cmmi:Recipe']},
 )

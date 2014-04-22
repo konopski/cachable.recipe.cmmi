@@ -1,4 +1,5 @@
 dist
 *.pyc
-hexagonit.recipe.cmmi.egg-info
+signate.recipe.cmmi.egg-info
 .tox
+.idea
