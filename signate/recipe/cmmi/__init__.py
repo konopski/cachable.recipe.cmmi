@@ -33,6 +33,8 @@ class Recipe(object):
         else:
             options['compile-directory'] = options['path']
 
+        options['cache'] = os.path.join(buildout['download-cache'], '%s__cache__' % options['location'])
+
         self.environ = {}
         self.original_environment = os.environ.copy()
 
@@ -151,6 +153,10 @@ class Recipe(object):
         except OSError as e:
             if e.errno == errno.EEXIST:
                 pass
+
+        cache = self.options['cache']
+        if os.path.exists(cache):
+            shutil.copytree(cache, compile_dir)
         os.chdir(compile_dir)
 
         try:
@@ -183,6 +189,10 @@ class Recipe(object):
                 if 'post-make-hook' in self.options and len(self.options['post-make-hook'].strip()) > 0:
                     log.info('Executing post-make-hook')
                     self.call_script(self.options['post-make-hook'])
+
+                if not os.path.exists(cache):
+                    os.mkdir(cache)
+                    shutil.copytree(compile_dir, cache)
 
             except:
                 log.error('Compilation error. The package is left as is at %s where '
