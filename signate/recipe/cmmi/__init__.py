@@ -33,7 +33,7 @@ class Recipe(object):
         else:
             options['compile-directory'] = options['path']
 
-        options['cache'] = os.path.join(buildout['buildout']['download-cache'], '%s__cache__' % options['location'])
+        options['cache'] = os.path.join(buildout['buildout']['download-cache'], '%s__cache__' % self.name)
 
         self.environ = {}
         self.original_environment = os.environ.copy()
