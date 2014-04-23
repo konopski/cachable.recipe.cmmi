@@ -143,6 +143,13 @@ class Recipe(object):
             except:
                 shutil.rmtree(compile_dir)
                 raise
+
+            cache_dir = self.options['cache-directory']
+            if os.path.exists(cache_dir):
+                shutil.rmtree(compile_dir)
+                shutil.copytree(cache_dir, compile_dir)
+            os.chdir(compile_dir)
+
         else:
             log.info('Using local source directory: %s' % self.options['path'])
             compile_dir = self.options['path']
@@ -154,10 +161,7 @@ class Recipe(object):
             if e.errno == errno.EEXIST:
                 pass
 
-        cache_dir = self.options['cache-directory']
-        if os.path.exists(cache_dir):
-            shutil.copytree(cache_dir, compile_dir)
-        os.chdir(compile_dir)
+
 
         try:
             try:
