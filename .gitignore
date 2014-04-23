@@ -1,5 +1,5 @@
 dist
 *.pyc
-signate.recipe.cmmi.egg-info
+cachable.recipe.cmmi.egg-info
 .tox
 .idea

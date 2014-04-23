@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 import os
 
 version = '1.0'
-name = 'signate.recipe.cmmi'
+name = 'cachable.recipe.cmmi'
 
 
 def read(*rnames):
@@ -21,7 +21,7 @@ setup(
         'Detailed Documentation\n'
         '**********************\n'
         + '\n' +
-        read('signate', 'recipe', 'cmmi', 'README.txt')
+        read('cachable', 'recipe', 'cmmi', 'README.txt')
         + '\n' +
         'Download\n'
         '***********************\n'
@@ -41,10 +41,10 @@ setup(
     keywords='development buildout recipe',
     author='Lukasz Konopski (based on heeagoitn)',
     author_email='konopski@gmail.com',
-    url='http://github.com/konopski/signate.recipe.cmmi',
+    url='http://github.com/konopski/cachable.recipe.cmmi',
     license='BSD',
     packages=find_packages(exclude=['ez_setup']),
-    namespace_packages=['signate', 'signate.recipe'],
+    namespace_packages=['cachable', 'cachable.recipe'],
     include_package_data=True,
     zip_safe=False,
     install_requires=[
@@ -56,6 +56,6 @@ setup(
         'test': ['zope.testing'],
     },
     tests_require=['zope.testing'],
-    test_suite='signate.recipe.cmmi.tests.test_suite',
-    entry_points={'zc.buildout': ['default = signate.recipe.cmmi:Recipe']},
+    test_suite='cachable.recipe.cmmi.tests.test_suite',
+    entry_points={'zc.buildout': ['default = cachable.recipe.cmmi:Recipe']},
 )
